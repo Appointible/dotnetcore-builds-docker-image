@@ -38,5 +38,7 @@ RUN apk --no-cache add \
     && rm glibc-bin-${GLIBC_VER}.apk \
     && rm -rf /var/cache/apk/*
 
+RUN dotnet tool install -g Amazon.Lambda.Tools --framework netcoreapp3.1
+
 RUN aws --version
 RUN sls --version
