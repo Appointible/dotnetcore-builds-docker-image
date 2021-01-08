@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1.404-alpine3.12
 # Install tools.
 RUN apk update && \
     apk upgrade && \
-	apk add --no-cache npm		
+	apk add --no-cache npm zip	
 
 RUN npm -g config set user root
 
@@ -39,6 +39,9 @@ RUN apk --no-cache add \
     && rm -rf /var/cache/apk/*
 
 RUN dotnet tool install -g Amazon.Lambda.Tools --framework netcoreapp3.1
+
+RUN export PATH="$PATH:/root/.dotnet/tools"
+RUN export PATH="$HOME/.serverless/bin:$PATH"
 
 RUN aws --version
 RUN sls --version
