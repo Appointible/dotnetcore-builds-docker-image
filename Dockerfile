@@ -8,7 +8,7 @@ RUN apk update && \
 
 RUN npm -g config set user root
 
-RUN npm install -g serverless@2.18.0
+RUN npm install -g serverless@2.28.7
 
 ENV GLIBC_VER=2.31-r0
 
