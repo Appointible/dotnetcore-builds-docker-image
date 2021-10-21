@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1.404-alpine3.12
+FROM mcr.microsoft.com/dotnet/sdk:3.1.414-alpine3.14
 # Alpine Packages: https://pkgs.alpinelinux.org/packages
 
 # Install tools.
@@ -8,9 +8,9 @@ RUN apk update && \
 
 RUN npm -g config set user root
 
-RUN npm install -g serverless@2.28.7
+RUN npm install -g serverless@2.64.1
 
-ENV GLIBC_VER=2.31-r0
+ENV GLIBC_VER=2.34-r0
 
 # Install AWS CLI 2
 RUN apk --no-cache add \
