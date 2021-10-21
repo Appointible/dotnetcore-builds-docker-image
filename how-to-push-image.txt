@@ -1,0 +1,19 @@
+Step 0: build new image
+        up.cmd
+        
+Step 1: Use username & password to login to hub.docker.com
+         docker login
+
+Step 2: get image id of new image
+        docker images
+
+Step 3: tag new image and push with version
+        docker tag 1c771f1db408 appointible/dotnetcore-builds:1.4.1
+		docker push appointible/dotnetcore-builds:1.4.1
+		
+Step 4: tag new image and push with :latest version tag
+        docker tag 1c771f1db408 appointible/dotnetcore-builds:latest
+		docker push appointible/dotnetcore-builds:latest
+
+Step 5: login to hub.docker.com and update readme file 
+https://hub.docker.com/repository/docker/appointible/dotnetcore-builds
