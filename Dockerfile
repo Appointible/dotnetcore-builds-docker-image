@@ -38,8 +38,8 @@ RUN apk --no-cache add \
     && rm glibc-bin-${GLIBC_VER}.apk \
     && rm -rf /var/cache/apk/*
 
-RUN dotnet tool install -g Amazon.Lambda.Tools --framework netcoreapp3.1
-RUN dotnet tool install -g dotnet-ef --framework netcoreapp3.1
+RUN dotnet tool install -g Amazon.Lambda.Tools --framework net6.0
+RUN dotnet tool install -g dotnet-ef --framework net6.0
 
 RUN export PATH="$PATH:/root/.dotnet/tools"
 RUN export PATH="$HOME/.serverless/bin:$PATH"
