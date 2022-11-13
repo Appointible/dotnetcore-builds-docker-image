@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1.414-alpine3.14
+FROM mcr.microsoft.com/dotnet/sdk:6.0.403-alpine3.16-amd64
 # Alpine Packages: https://pkgs.alpinelinux.org/packages
 
 # Install tools.
