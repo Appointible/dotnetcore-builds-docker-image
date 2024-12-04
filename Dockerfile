@@ -1,12 +1,14 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0.403-alpine3.16-amd64
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine3.18-amd64
 # Alpine Packages: https://pkgs.alpinelinux.org/packages
+
+USER root
 
 # Install tools.
 RUN apk update && \
     apk upgrade && \
 	apk add --no-cache npm zip	
 
-RUN npm -g config set user root
+RUN npm config set prefix /usr/local
 
 RUN npm install -g serverless@3.26.0
 RUN npm install -g @serverless/compose@1.3.0
@@ -39,8 +41,8 @@ RUN apk --no-cache add \
     && rm glibc-bin-${GLIBC_VER}.apk \
     && rm -rf /var/cache/apk/*
 
-RUN dotnet tool install -g Amazon.Lambda.Tools --framework net6.0
-RUN dotnet tool install -g dotnet-ef --framework net6.0
+RUN dotnet tool install -g Amazon.Lambda.Tools --framework net8.0
+RUN dotnet tool install -g dotnet-ef --framework net8.0
 
 RUN export PATH="$PATH:/root/.dotnet/tools"
 RUN export PATH="$HOME/.serverless/bin:$PATH"
